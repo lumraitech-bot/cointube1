@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 
-export default function AdBanner({ placement }: { placement?: string }) {
+export default function AdBanner({ placement: _placement }: { placement?: string }) {
   const [ad, setAd] = useState<any>(null);
   useEffect(()=>{
     fetch('/api/ads?active=1').then(r=>r.json()).then((list)=>{

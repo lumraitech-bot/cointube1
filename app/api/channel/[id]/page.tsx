@@ -14,7 +14,7 @@ export default async function ChannelPage({ params }: { params: Promise<{ id: st
   return (
     <div className="space-y-4">
       <div className="card flex items-center gap-4">
-        <img src={user.avatar || '/favicon.svg'} className="w-20 h-20 rounded-full border border-white/10" alt="avatar" />
+        <img src={user.avatar || '/favicon.svg'} alt="avatar" className="w-20 h-20 rounded-full border border-white/10" />
         <div className="flex-1">
           <h1 className="text-2xl font-bold">{user.name}</h1>
           <ChannelHead channelId={user.id} />
@@ -23,7 +23,7 @@ export default async function ChannelPage({ params }: { params: Promise<{ id: st
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {videos.map(v => (
           <a key={v.id} href={`/watch/${v.id}`} className="card">
-            <img src={v.thumbnail || '/videos/demo.jpg'} className="w-full h-40 object-cover rounded-xl" />
+            <img src={v.thumbnail || '/videos/demo.jpg'} alt="vignette" className="w-full h-40 object-cover rounded-xl" />
             <div className="mt-2 font-semibold">{v.title}</div>
           </a>
         ))}
