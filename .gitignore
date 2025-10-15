@@ -1,0 +1,7 @@
+﻿node_modules/
+.next/
+coverage/
+data/
+public/videos/
+.env
+.env.*
