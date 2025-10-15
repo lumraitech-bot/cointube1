@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import './globals.css';
 import Header from '@/components/Header';
 import type { Metadata } from 'next';
@@ -7,7 +8,7 @@ export const metadata: Metadata = {
   description: 'Plateforme vidéo locale de démonstration (Next.js + backend fichier).',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr">
       <body>

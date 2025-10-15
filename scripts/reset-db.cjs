@@ -1,3 +1,4 @@
+/* eslint-env node */
 // Simple reset script to clear local DB
 const fs = require('fs');
 const path = require('path');

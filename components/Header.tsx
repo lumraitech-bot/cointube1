@@ -1,12 +1,11 @@
 'use client';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { PlayCircle, Menu, LogIn, User, Upload, SlidersHorizontal, Search } from 'lucide-react';
+import { PlayCircle, Menu, SlidersHorizontal, Search } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 export default function Header() {
   const [me, setMe] = useState<any>(null);
-  const [open, setOpen] = useState(false);
   const [sidebar, setSidebar] = useState(false);
   const router = useRouter();
   const sp = useSearchParams();

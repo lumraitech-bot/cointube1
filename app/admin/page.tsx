@@ -2,7 +2,6 @@ import { getSession } from '@/lib/auth';
 import { readDB } from '@/lib/db';
 import AdminStats from '@/components/AdminStats';
 import RoleAction from '@/components/RoleAction';
-import DeleteVideoAction from '@/components/DeleteVideoAction';
 
 export const dynamic = 'force-dynamic';
 
