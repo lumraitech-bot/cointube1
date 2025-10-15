@@ -1,36 +1,30 @@
-/* eslint import/no-anonymous-default-export: "off" */
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { FlatCompat } from '@eslint/eslintrc';
 import js from '@eslint/js';
 import tsParser from '@typescript-eslint/parser';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
+import globals from 'globals';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const compat = new FlatCompat({ baseDirectory: __dirname });
-
-const config = [
-  // 👇 Ignore fichiers générés & gros dossiers
+export default [
+  // Ignore les fichiers générés & lourds
   { ignores: ['node_modules/**', '.next/**', 'coverage/**', 'data/**', 'public/videos/**'] },
 
-  js.configs.recommended,
+  // Globals disponibles partout (navigateur + node)
+  {
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node
+      }
+    }
+  },
 
-  // Presets Next via compat
-  ...compat.config({
-    extends: ['next/core-web-vitals'],
-    rules: { '@next/next/no-img-element': 'off' }
-  }),
+  js.configs.recommended,
 
   // Règles TypeScript
   {
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
       parser: tsParser,
-      parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-        ecmaFeatures: { jsx: true }
-      }
+      parserOptions: { ecmaVersion: 'latest', sourceType: 'module', ecmaFeatures: { jsx: true } }
     },
     plugins: { '@typescript-eslint': tsPlugin },
     rules: {
@@ -40,12 +34,7 @@ const config = [
         argsIgnorePattern: '^_',
         varsIgnorePattern: '^_',
         caughtErrorsIgnorePattern: '^_'
-      }],
-      'import/no-anonymous-default-export': 'off',
-      'jsx-a11y/alt-text': 'warn'
-    },
-    settings: { react: { version: 'detect' } }
+      }]
+    }
   }
 ];
-
-export default config;

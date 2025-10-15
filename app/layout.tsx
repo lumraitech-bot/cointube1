@@ -1,6 +1,4 @@
 import type { ReactNode } from "react";
-import type { ReactNode } from "react";
-import type { ReactNode } from "react";
 import './globals.css';
 import Header from '@/components/Header';
 import type { Metadata } from 'next';
